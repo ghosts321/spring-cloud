@@ -1,0 +1,29 @@
+server:
+  port: 8007
+
+spring:
+  application:
+    name: service-zuul
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8001/eureka/ #,http://localhost:8002/eureka/,http://localhost:8003/eureka/
+
+zuul:
+  routes:
+    api-a:
+      path: /api-a/**
+      serviceId: service-producer
+    api-b:
+      path: /api-b/**
+      serviceId: service-customer-ribbon
+    api-c:
+      path: /api-c/**
+      serviceId: service-customer-feign
+    github:
+      path: /github/**
+      url: https://github.com/
+    baidu:
+      path: /baidu/**
+      url: https://baidu.com/

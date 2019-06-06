@@ -1,0 +1,13 @@
+server:
+  port: 8003
+
+eureka:
+  instance:
+    hostname: peer3
+  client:
+    service-url:
+      defaultZone: http://peer1:8001/eureka/,http://peer2:8002/eureka/
+
+spring:
+  application:
+    name: eureka-server-peer3
