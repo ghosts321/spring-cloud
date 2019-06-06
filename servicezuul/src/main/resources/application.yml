@@ -12,15 +12,18 @@ eureka:
 
 zuul:
   routes:
-    api-a:
-      path: /api-a/**
+    api-producer:
+      path: /api-producer/**
       serviceId: service-producer
-    api-b:
-      path: /api-b/**
+    api-ribbon:
+      path: /api-ribbon/**
       serviceId: service-customer-ribbon
-    api-c:
-      path: /api-c/**
+    api-feign:
+      path: /api-feign/**
       serviceId: service-customer-feign
+    api-configclient:
+      path: /api-configclient/**
+      serviceId: config-client
     github:
       path: /github/**
       url: https://github.com/

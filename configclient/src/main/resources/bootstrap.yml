@@ -1,0 +1,15 @@
+spring:
+  cloud:
+    config:
+      name: springcloud-config
+      profile: pro
+#      uri: http://localhost:8008/
+      label: master
+      discovery:
+        service-id: config-server
+        enabled: true
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8001/eureka/ #,http://localhost:8002/eureka/,http://localhost:8003/eureka/

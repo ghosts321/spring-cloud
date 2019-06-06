@@ -8,6 +8,8 @@
         <module>servicecustomerribbon</module>
         <module>servicecuetomerfeign</module>
         <module>servicezuul</module>
+        <module>configserver</module>
+        <module>configclient</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -44,12 +46,12 @@
         </dependency>
 
         <!-- 热编译-->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-devtools</artifactId>
-            <version>${spring-boot.version}</version>
-            <optional>true</optional>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>org.springframework.boot</groupId>-->
+<!--            <artifactId>spring-boot-devtools</artifactId>-->
+<!--            <version>${spring-boot.version}</version>-->
+<!--            <optional>true</optional>-->
+<!--        </dependency>-->
     </dependencies>
 
     <dependencyManagement>
