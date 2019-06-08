@@ -3,3 +3,15 @@ server:
 spring:
   application:
     name: config-client
+
+logging:
+  level:
+    root: warn
+    org:
+      springframework:
+        boot:
+          autoconfigure: error
+        web: info
+      hibernate: error
+      mybatis: info
+
