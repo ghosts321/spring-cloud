@@ -5,6 +5,19 @@ spring:
   application:
     name: service-zuul
 
+debug: true
+
+logging:
+  level:
+    root: info
+    org:
+      springframework:
+        boot:
+          autoconfigure: error
+        web: info
+      hibernate: error
+      mybatis: info
+
 eureka:
   client:
     service-url:

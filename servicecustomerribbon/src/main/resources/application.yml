@@ -14,7 +14,7 @@ debug: true
 
 logging:
   level:
-    root: warn
+    root: info
     org:
       springframework:
         boot:
