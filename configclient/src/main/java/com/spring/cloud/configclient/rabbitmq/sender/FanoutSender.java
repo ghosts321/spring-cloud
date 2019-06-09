@@ -1,5 +1,6 @@
 package com.spring.cloud.configclient.rabbitmq.sender;
 
+import com.alibaba.fastjson.JSON;
 import com.spring.cloud.configclient.rabbitmq.config.RabbitConfig;
 import com.spring.cloud.configclient.rabbitmq.entity.User;
 import org.springframework.amqp.core.AmqpTemplate;
@@ -17,6 +18,8 @@ public class FanoutSender {
     private AmqpTemplate rabbitTemplate;
 
     public void send(User user) {
-        this.rabbitTemplate.convertAndSend(RabbitConfig.FANOUT_EXCHANGE, "", user);
+
+        String message = JSON.toJSONString(user);
+        this.rabbitTemplate.convertAndSend(RabbitConfig.FANOUT_EXCHANGE, "", message);
     }
 }

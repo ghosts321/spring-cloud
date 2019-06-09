@@ -1,5 +1,6 @@
 package com.spring.cloud.configclient.rabbitmq.sender;
 
+import com.alibaba.fastjson.JSON;
 import com.spring.cloud.configclient.rabbitmq.config.RabbitConfig;
 import com.spring.cloud.configclient.rabbitmq.entity.User;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
@@ -15,6 +16,7 @@ public class DirectSender {
     private RabbitTemplate rabbitTemplate;
 
     public void send(User user) {
-        this.rabbitTemplate.convertAndSend(RabbitConfig.DIRECT_EXCHANGE, "direct.jjp", user);
+        String message = JSON.toJSONString(user);
+        this.rabbitTemplate.convertAndSend(RabbitConfig.DIRECT_EXCHANGE, "direct.jjp", message);
     }
 }

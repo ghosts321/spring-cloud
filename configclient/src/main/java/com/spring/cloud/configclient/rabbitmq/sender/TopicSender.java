@@ -1,5 +1,6 @@
 package com.spring.cloud.configclient.rabbitmq.sender;
 
+import com.alibaba.fastjson.JSON;
 import com.spring.cloud.configclient.rabbitmq.config.RabbitConfig;
 import com.spring.cloud.configclient.rabbitmq.entity.User;
 import org.springframework.amqp.core.AmqpTemplate;
@@ -20,7 +21,9 @@ public class TopicSender {
     // 第二个参数：Route-Key
     // 第三个参数：要发送的内容
     public void send(User user) {
-        this.rabbitTemplate.convertAndSend(RabbitConfig.TOPIC_EXCHANGE,"jl.message", user);
-        this.rabbitTemplate.convertAndSend(RabbitConfig.TOPIC_EXCHANGE, "jl.ljh", user);
+
+        String message = JSON.toJSONString(user);
+        this.rabbitTemplate.convertAndSend(RabbitConfig.TOPIC_EXCHANGE,"jl.message", message);
+        this.rabbitTemplate.convertAndSend(RabbitConfig.TOPIC_EXCHANGE, "jl.ljh", message);
     }
 }

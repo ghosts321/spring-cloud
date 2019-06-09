@@ -58,7 +58,7 @@ public class SpringbootRabbitmqApplicationTests {
     public void testTopic() {
         User user=new User();
         user.setId("1");
-        user.setName("哈利陆呀！！！");
+        user.setName("小陆砸呀");
         topicSender.send(user);
     }
 }

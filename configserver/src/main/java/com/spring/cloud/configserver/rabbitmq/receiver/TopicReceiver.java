@@ -1,7 +1,8 @@
-package com.spring.cloud.configclient.rabbitmq.receiver;
+package com.spring.cloud.configserver.rabbitmq.receiver;
 
-import com.spring.cloud.configclient.rabbitmq.config.RabbitConfig;
-import com.spring.cloud.configclient.rabbitmq.entity.User;
+import com.alibaba.fastjson.JSON;
+import com.spring.cloud.configserver.rabbitmq.config.RabbitConfig;
+import com.spring.cloud.configserver.rabbitmq.entity.User;
 import org.jboss.logging.Logger;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.stereotype.Component;
@@ -21,12 +22,17 @@ public class TopicReceiver {
 
     // queues是指要监听的队列的名字
     @RabbitListener(queues = RabbitConfig.TOPIC_QUEUE1)
-    public void receiveTopic1(User user) {
+    public void receiveTopic1(String message) {
+
+        User user = JSON.parseObject(message, User.class);
 
         LOGGER.info("【receiveTopic1监听到消息】" + user.toString());
     }
     @RabbitListener(queues = RabbitConfig.TOPIC_QUEUE2)
-    public void receiveTopic2(User user) {
+    public void receiveTopic2(String message) {
+
+        User user = JSON.parseObject(message, User.class);
+
         LOGGER.info("【receiveTopic2监听到消息】" + user.toString());
     }
 }
