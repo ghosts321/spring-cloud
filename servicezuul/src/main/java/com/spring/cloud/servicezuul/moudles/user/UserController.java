@@ -1,7 +1,7 @@
-package com.spring.cloud.customerauth.moudles.user;
+package com.spring.cloud.servicezuul.moudles.user;
 
-import com.spring.cloud.customerauth.common.enums.ResultEnum;
-import com.spring.cloud.customerauth.common.vo.ResultVO;
+import com.spring.cloud.servicezuul.common.enums.ResultEnum;
+import com.spring.cloud.servicezuul.common.vo.ResultVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;

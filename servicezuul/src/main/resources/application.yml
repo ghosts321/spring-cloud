@@ -1,9 +1,47 @@
 server:
   port: 8007
+  tomcat:
+    uri-encoding: UTF-8
 
 spring:
   application:
     name: service-zuul
+  datasource:
+    username: root
+    password: root
+    url: jdbc:mysql://localhost/springboot?characterEncoding=utf-8&useSSl=false&serverTimezone=GMT%2B8
+    type: com.alibaba.druid.pool.DruidDataSource
+    filters: stat,wall
+    initialSize: 5
+    minIdle: 5
+    maxActive: 20
+    maxWait: 60000
+    timeBetweenEvictionRunsMillis: 60000
+    minEvictableIdleTimeMillis: 300000
+    validationQuery: SELECT 1 FROM DUAL
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    poolPreparedStatements: false
+    maxPoolPreparedStatementPerConnectionSize: 20
+    connectionProperties:
+      druid:
+        stat:
+          mergeSql: true
+          slowSqlMillis: 5000
+    jpa:
+      hibernate:
+        ddl-auto: update
+      show-sql: true
+    http:
+      encoding:
+        charset: utf-8
+        force: true
+        enabled: true
+    redis:
+      host: 127.0.0.1
+      port: 6379
+      password:
 
 debug: true
 
@@ -43,3 +81,7 @@ zuul:
     baidu:
       path: /baidu/**
       url: https://baidu.com/
+
+token:
+  expirationSeconds: 300
+  validTime: 7
