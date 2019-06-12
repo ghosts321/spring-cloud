@@ -3,7 +3,8 @@ package com.spring.cloud.configserver.rabbitmq.receiver;
 import com.alibaba.fastjson.JSON;
 import com.spring.cloud.configserver.rabbitmq.config.RabbitConfig;
 import com.spring.cloud.configserver.rabbitmq.entity.User;
-import org.jboss.logging.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.stereotype.Component;
 
@@ -18,7 +19,7 @@ public class TopicReceiver {
     /**
      * logger
      */
-    private static final Logger LOGGER = Logger.getLogger(TopicReceiver.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(TopicReceiver.class);
 
     // queues是指要监听的队列的名字
     @RabbitListener(queues = RabbitConfig.TOPIC_QUEUE1)

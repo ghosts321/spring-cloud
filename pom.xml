@@ -10,6 +10,7 @@
         <module>servicezuul</module>
         <module>configserver</module>
         <module>configclient</module>
+        <module>customerauth</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -89,6 +90,11 @@
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>
             <version>1.2.58</version>
+        </dependency>
+        <!-- lombok插件工具 -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
         </dependency>
     </dependencies>
 
